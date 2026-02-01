@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Section from "./components/Section/Section";
 import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Statistics from "./components/Statistics/Statistics";
@@ -28,6 +28,11 @@ function App() {
   };
 
   const total = countTotalFeedback();
+
+  // useEffect для логування змін фідбеку
+  useEffect(() => {
+    console.log("Feedback changed:", feedback);
+  }, [feedback]); // викликається щоразу, коли feedback змінюється
 
   return (
     <div className="App">
